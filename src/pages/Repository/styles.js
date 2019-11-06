@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Loading = styled.div`
   color: white;
@@ -100,5 +100,48 @@ export const IssuesList = styled.ul`
         color: #999;
       }
     }
+  }
+`;
+
+export const SelectState = styled.select`
+  padding: 5px 10px;
+  margin-top: 15px;
+`;
+
+export const Paginator = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+
+  button {
+    cursor: pointer;
+    background: #7159c1;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: bold;
+    margin: 10px 5px;
+    border: none;
+    ${props =>
+      props.page === 1 &&
+      css`
+        &:first-child {
+          cursor: not-allowed;
+          opacity: 0.6;
+          pointer-events: none;
+        }
+      `}
+    ${props =>
+      props.page === 6 &&
+      css`
+        &:last-child {
+          cursor: not-allowed;
+          opacity: 0.6;
+          pointer-events: none;
+        }
+      `}
   }
 `;
